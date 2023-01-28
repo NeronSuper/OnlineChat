@@ -10,14 +10,14 @@
 class CLIMessage : public CLI 
 {
 public:
-	CLIMessage(UserData* current);
+	explicit CLIMessage(UserData* current);
 
 	void mainMenu();
 
-	void sendToSomebody();
-	void mutualChat();
-	void sendToALl();
-	void generalChat();
+	void sendToSomebody() const;
+	void mutualChat() const;
+	void sendToALl() const;
+	void generalChat() const;
 
 	void help() override;
 

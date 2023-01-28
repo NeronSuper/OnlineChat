@@ -76,7 +76,7 @@ void CLIBaseApp::signIn()
 }
 
 
-void CLIBaseApp::signUp()
+void CLIBaseApp::signUp() const
 {
     std::string login, password;
     CLIPrivateUserData cliPrivateUserData;

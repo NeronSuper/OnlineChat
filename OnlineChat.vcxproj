@@ -140,9 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseApp.cpp" />
-    <ClCompile Include="cli.cpp" />
     <ClCompile Include="cliBaseApp.cpp" />
-    <ClCompile Include="cliMassege.cpp" />
+    <ClCompile Include="cliMessage.cpp" />
     <ClCompile Include="cliPrivateUserData.cpp" />
     <ClCompile Include="cliUserData.cpp" />
     <ClCompile Include="main.cpp" />
@@ -154,7 +153,7 @@
     <ClInclude Include="BaseApp.h" />
     <ClInclude Include="cli.h" />
     <ClInclude Include="cliBaseApp.h" />
-    <ClInclude Include="cliMassege.h" />
+    <ClInclude Include="cliMessage.h" />
     <ClInclude Include="cliPrivateUserData.h" />
     <ClInclude Include="cliUserData.h" />
     <ClInclude Include="message.h" />

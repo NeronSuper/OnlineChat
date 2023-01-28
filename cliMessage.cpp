@@ -1,4 +1,4 @@
-#include "CLIMassege.h"
+#include "cliMessage.h"
 
 CLIMessage::CLIMessage(UserData* current)
 	: _baseApp(BaseApp::instance()), _current(current)
@@ -47,7 +47,7 @@ void CLIMessage::mainMenu()
 	
 }
 
-void CLIMessage::sendToSomebody()
+void CLIMessage::sendToSomebody() const
 {
 	std::string receiver;
 	std::string message;
@@ -94,7 +94,7 @@ void CLIMessage::sendToSomebody()
 	_baseApp->sendMessage(Message(_current->getLogin(), message), receiver);
 }
 
-void CLIMessage::mutualChat()
+void CLIMessage::mutualChat() const
 {
 	std::string chatName; 
 
@@ -135,7 +135,7 @@ void CLIMessage::mutualChat()
 	_baseApp->printChat(chatName);
 }
 
-void CLIMessage::sendToALl()
+void CLIMessage::sendToALl() const
 {
 	std::system("cls");
 
@@ -148,7 +148,7 @@ void CLIMessage::sendToALl()
 	_baseApp->sendMessage(Message(_current->getLogin(), message));
 }
 
-void CLIMessage::generalChat()
+void CLIMessage::generalChat() const
 {
 	_baseApp->printChat();
 }

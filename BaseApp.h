@@ -12,21 +12,20 @@ class BaseApp
 private:
     BaseApp();
 
+public:
     BaseApp(BaseApp const&) = delete;
     BaseApp& operator= (BaseApp const&) = delete;
-
-public:
-    ~BaseApp();
+    ~BaseApp() = default;
 
 public:
     static BaseApp* instance();
 
-    UserData* getCurrent();
+    UserData* getCurrent() const;
     void setCurrent(UserData* userData);
 
     void addUser(const UserData& ud);
-    bool isLogin(const std::string& login);
-    bool isPassword(const std::string& password);
+    bool isLogin(const std::string& login) const;
+    bool isPassword(const std::string& password) const;
 
     UserData* findUser(const std::string& login);
 

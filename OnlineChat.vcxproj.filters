@@ -4,7 +4,7 @@
     <ClCompile Include="cliBaseApp.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="cliMassege.cpp">
+    <ClCompile Include="cliMessage.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
     <ClCompile Include="cliPrivateUserData.cpp">
@@ -28,9 +28,6 @@
     <ClCompile Include="BaseApp.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="cli.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cpp">
@@ -50,7 +47,7 @@
     <ClInclude Include="cliBaseApp.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="cliMassege.h">
+    <ClInclude Include="cliMessage.h">
       <Filter>hpp</Filter>
     </ClInclude>
     <ClInclude Include="cliPrivateUserData.h">

@@ -1,12 +1,9 @@
 #pragma once
 
-#include <map>
-#include <string>
-
 #include "cli.h"
 #include "cliPrivateUserData.h"
 #include "cliUserData.h"
-#include "cliMassege.h"
+#include "cliMessage.h"
 #include "BaseApp.h"
 
 
@@ -14,11 +11,11 @@ class CLIBaseApp : public CLI
 {
 public:
 	CLIBaseApp();
-	~CLIBaseApp();
+	~CLIBaseApp() override;
 
 public:
 	void signIn();
-	void signUp();
+	void signUp() const;
 	void help() override;
 
 private:

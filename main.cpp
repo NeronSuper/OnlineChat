@@ -7,7 +7,7 @@ auto main() -> int
 {
 	CLIBaseApp cliBaseApp;
 
-	while (1)
+	while (true)
 	{
 		std::system("cls");
 		cliBaseApp.help();
@@ -26,8 +26,8 @@ auto main() -> int
 			break;
 
 		case 0:
-			exit(0);
 
+			return 0;
 		default:
 			break;
 		}

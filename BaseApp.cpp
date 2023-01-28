@@ -1,8 +1,5 @@
 #include "BaseApp.h"
 
-BaseApp::~BaseApp()
-{
-}
 
 std::unique_ptr<BaseApp> BaseApp::_instance = nullptr;
 BaseApp* BaseApp::instance()
@@ -14,7 +11,7 @@ BaseApp* BaseApp::instance()
     return _instance.get();
 }
 
-UserData* BaseApp::getCurrent()
+UserData* BaseApp::getCurrent() const
 {
     return _currentUser;
 }
@@ -29,22 +26,22 @@ void BaseApp::addUser(const UserData& ud)
     _usersData.push_back(ud);
 }
 
-bool BaseApp::isLogin(const std::string& login)
+bool BaseApp::isLogin(const std::string& login) const
 {
-    for (int i = 0; i < _usersData.size(); ++i)
+    for (const auto& i : _usersData)
     {
-        if (_usersData[i].getLogin() == login)
+        if (i.getLogin() == login)
             return true;
-    } 
+    }
 
     return false;
 }
-bool BaseApp::isPassword(const std::string& password)
+bool BaseApp::isPassword(const std::string& password) const
 {
 
-    for (int i = 0; i < _usersData.size(); ++i)
+    for (const auto& i : _usersData)
     {
-        if (_usersData[i].getPassword() == password)
+        if (i.getPassword() == password)
             return true;
     }
 
@@ -68,7 +65,7 @@ void BaseApp::printChat(const std::string& chatName)
 
     auto messages = _currentUser->getMessages()[chatName];
 
-    if (messages.size() == 0)
+    if (messages.empty())
     {
         std::cout << "This chat is empty, send him a message!\n";
     }

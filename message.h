@@ -4,7 +4,7 @@
 class Message 
 {
 public:
-    Message(std::string name, std::string message);
+    Message(const std::string& name, const std::string& message);
 
     const std::string& getName() const;
     const std::string& getMessage() const;
