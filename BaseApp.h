@@ -3,6 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 #include "UserData.h"
 
@@ -37,11 +38,8 @@ public:
 private:
     static std::unique_ptr<BaseApp> _instance;
 
-    std::vector<UserData> _usersData;  // vector of users
+    std::unordered_map<std::string, UserData> _usersData; // unordered_map of users
     UserData* _currentUser;
     
     std::vector<Message> _generalChat;
 };
-
-
-

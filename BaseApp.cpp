@@ -23,16 +23,13 @@ void BaseApp::setCurrent(UserData* userData)
 
 void BaseApp::addUser(const UserData& ud)
 {
-    _usersData.push_back(ud);
+    _usersData[ud.getLogin()] = ud;
 }
 
 bool BaseApp::isLogin(const std::string& login) const
 {
-    for (const auto& i : _usersData)
-    {
-        if (i.getLogin() == login)
-            return true;
-    }
+    if (_usersData.find(login) != _usersData.end())
+        return true;
 
     return false;
 }
@@ -41,7 +38,7 @@ bool BaseApp::isPassword(const std::string& password) const
 
     for (const auto& i : _usersData)
     {
-        if (i.getPassword() == password)
+        if (i.second.getPassword() == password)
             return true;
     }
 
@@ -50,11 +47,10 @@ bool BaseApp::isPassword(const std::string& password) const
 
 UserData* BaseApp::findUser(const std::string& login)
 {
-    for (int i = 0; i < _usersData.size(); ++i)
-    {
-        if (_usersData[i].getLogin() == login)
-            return &_usersData[i];
-    }
+    auto ud = _usersData.find(login);
+
+    if (ud != _usersData.end())
+        return &ud->second;
 
     return nullptr;
 }
@@ -116,6 +112,6 @@ void BaseApp::sendMessage(const Message& message)
 }
 
 BaseApp::BaseApp() 
-    : _currentUser(nullptr)
+    : _usersData(), _currentUser(nullptr), _generalChat()
 {
 }

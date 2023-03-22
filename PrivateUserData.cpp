@@ -1,7 +1,17 @@
 #include "PrivateUserData.h"
 
+PrivateUserData::PrivateUserData()
+	: _pData(), _messages()
+{
+}
+
 PrivateUserData::PrivateUserData(const std::string& login, const std::string& password)
 	: _pData(login, password)
+{
+}
+
+PrivateUserData::PrivateUserData(const PrivateUserData& pud)
+	: _pData(pud._pData), _messages(pud._messages)
 {
 }
 

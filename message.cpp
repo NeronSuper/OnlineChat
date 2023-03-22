@@ -1,5 +1,10 @@
 #include "message.h"
 
+Message::Message()
+	: _message()
+{
+}
+
 Message::Message(const std::string& name, const std::string& message)
 	: _message(name, message)
 {
