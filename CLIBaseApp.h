@@ -1,9 +1,9 @@
 #pragma once
 
-#include "cli.h"
-#include "cliPrivateUserData.h"
-#include "cliUserData.h"
-#include "cliMessage.h"
+#include "Cli.h"
+#include "CliPrivateUserData.h"
+#include "CliUserData.h"
+#include "CliMessage.h"
 #include "BaseApp.h"
 
 

@@ -4,12 +4,14 @@
 #include <map>
 #include <vector>
 
-#include "message.h"
+#include "Message.h"
 
 class PrivateUserData
 {
 public:
+    PrivateUserData();
     PrivateUserData(const std::string& login, const std::string& password);
+    PrivateUserData(const PrivateUserData& pud);
 
     std::string getLogin() const;
     std::string getPassword() const;

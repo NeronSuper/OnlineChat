@@ -1,4 +1,4 @@
-#include "cliMessage.h"
+#include "CliMessage.h"
 
 CLIMessage::CLIMessage(UserData* current)
 	: _baseApp(BaseApp::instance()), _current(current)

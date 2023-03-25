@@ -140,23 +140,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseApp.cpp" />
-    <ClCompile Include="cliBaseApp.cpp" />
-    <ClCompile Include="cliMessage.cpp" />
-    <ClCompile Include="cliPrivateUserData.cpp" />
-    <ClCompile Include="cliUserData.cpp" />
+    <ClCompile Include="CliBaseApp.cpp" />
+    <ClCompile Include="CliMessage.cpp" />
+    <ClCompile Include="CliPrivateUserData.cpp" />
+    <ClCompile Include="CliUserData.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="message.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="PrivateUserData.cpp" />
     <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApp.h" />
-    <ClInclude Include="cli.h" />
-    <ClInclude Include="cliBaseApp.h" />
-    <ClInclude Include="cliMessage.h" />
-    <ClInclude Include="cliPrivateUserData.h" />
-    <ClInclude Include="cliUserData.h" />
-    <ClInclude Include="message.h" />
+    <ClInclude Include="Cli.h" />
+    <ClInclude Include="CliBaseApp.h" />
+    <ClInclude Include="CliMessage.h" />
+    <ClInclude Include="CliPrivateUserData.h" />
+    <ClInclude Include="CliUserData.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="PrivateUserData.h" />
     <ClInclude Include="UserData.h" />
   </ItemGroup>

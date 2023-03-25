@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="cliBaseApp.cpp">
+    <ClCompile Include="CliBaseApp.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="cliMessage.cpp">
+    <ClCompile Include="CliMessage.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="cliPrivateUserData.cpp">
+    <ClCompile Include="CliPrivateUserData.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="cliUserData.cpp">
+    <ClCompile Include="CliUserData.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="message.cpp">
+    <ClCompile Include="Message.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
     <ClCompile Include="PrivateUserData.cpp">
@@ -41,22 +41,22 @@
     <ClInclude Include="BaseApp.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="cli.h">
+    <ClInclude Include="Cli.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="cliBaseApp.h">
+    <ClInclude Include="CliBaseApp.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="cliMessage.h">
+    <ClInclude Include="CliMessage.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="cliPrivateUserData.h">
+    <ClInclude Include="CliPrivateUserData.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="cliUserData.h">
+    <ClInclude Include="CliUserData.h">
       <Filter>hpp</Filter>
     </ClInclude>
-    <ClInclude Include="message.h">
+    <ClInclude Include="Message.h">
       <Filter>hpp</Filter>
     </ClInclude>
     <ClInclude Include="PrivateUserData.h">

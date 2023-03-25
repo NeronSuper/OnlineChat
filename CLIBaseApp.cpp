@@ -1,4 +1,4 @@
-#include "CLIBaseApp.h"
+#include "CliBaseApp.h"
 
 CLIBaseApp::CLIBaseApp()
     : _baseApp(BaseApp::instance()), _current(nullptr)
