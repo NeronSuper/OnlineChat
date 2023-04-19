@@ -2,68 +2,68 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="CliBaseApp.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="CliMessage.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="CliPrivateUserData.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="CliUserData.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Message.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="PrivateUserData.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="UserData.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="BaseApp.cpp">
-      <Filter>cpp</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="cpp">
+    <Filter Include="Source">
       <UniqueIdentifier>{8e69ecce-d1a4-4624-9840-68ed7165bc36}</UniqueIdentifier>
     </Filter>
-    <Filter Include="hpp">
+    <Filter Include="Header">
       <UniqueIdentifier>{ab2029b0-89a7-4e99-a6b7-804553ada5ae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApp.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Cli.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="CliBaseApp.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="CliMessage.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="CliPrivateUserData.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="CliUserData.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Message.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="PrivateUserData.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="UserData.h">
-      <Filter>hpp</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

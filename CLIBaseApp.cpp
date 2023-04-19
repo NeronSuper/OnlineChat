@@ -20,7 +20,7 @@ void CLIBaseApp::signIn()
     {
         std::tie(login, password) = cliPrivateUserData.getLoginAndPass();
 
-        if (!_baseApp->isLogin(login) && !_baseApp->isPassword(password))
+        if (!_baseApp->isPasswordCorrect(login, password))
         {
             std::system("cls");
 
@@ -90,7 +90,7 @@ void CLIBaseApp::signUp() const
         {
             std::system("cls");
 
-            std::cout << "User with \"" << login << "\" login doesn't exist";
+            std::cout << "User with \"" << login << "\" login is already exist";
             
             if (!cliUserData.isContinue())
                 return;

@@ -26,7 +26,7 @@ public:
 
     void addUser(const UserData& ud);
     bool isLogin(const std::string& login) const;
-    bool isPassword(const std::string& password) const;
+    bool isPasswordCorrect(const std::string& login, const std::string& password) const;
 
     UserData* findUser(const std::string& login);
 

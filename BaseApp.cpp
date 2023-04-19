@@ -33,14 +33,14 @@ bool BaseApp::isLogin(const std::string& login) const
 
     return false;
 }
-bool BaseApp::isPassword(const std::string& password) const
-{
 
-    for (const auto& i : _usersData)
-    {
-        if (i.second.getPassword() == password)
-            return true;
-    }
+bool BaseApp::isPasswordCorrect(const std::string& login, const std::string& password) const
+{
+    if (!isLogin(login))
+        return false;
+
+    if (_usersData.at(login).getPassword() == password)
+        return true;
 
     return false;
 }
