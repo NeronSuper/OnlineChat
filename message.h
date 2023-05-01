@@ -1,16 +1,20 @@
+
 #pragma once
 #include <string>
-
-class Message 
+namespace Messanger
 {
-public:
-    Message();
-    Message(const std::string& name, const std::string& message);
+    class Message
+    {
+    public:
+        Message();
+        Message(const std::string& name, const std::string& message);
 
-    const std::string& getName() const;
-    const std::string& getMessage() const;
+        const std::string& getName() const;
+        const std::string& getMessage() const;
 
-private:
-    std::pair<std::string, std::string> _message;
+    private:
+        std::pair<std::string, std::string> _message;
 
-};
+    };
+}
+

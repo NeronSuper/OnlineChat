@@ -1,35 +1,35 @@
-#include <iostream>
+
 
 #include "CliBaseApp.h"
+using namespace Messanger;
 
-
-auto main() -> int
-{
-	CLIBaseApp cliBaseApp;
-
-	while (true)
+	auto main() -> int
 	{
-		std::system("cls");
-		cliBaseApp.help();
+		CLIBaseApp cliBaseApp;
 
-		int answer;
-		std::cin >> answer;
-
-		switch (answer)
+		while (true)
 		{
-		case 1:
-			cliBaseApp.signIn();
-			break;
+			std::system("cls");
+			cliBaseApp.help();
 
-		case 2:
-			cliBaseApp.signUp();
-			break;
+			int answer;
+			std::cin >> answer;
 
-		case 0:
+			switch (answer)
+			{
+			case 1:
+				cliBaseApp.signIn();
+				break;
 
-			return 0;
-		default:
-			break;
+			case 2:
+				cliBaseApp.signUp();
+				break;
+
+			case 0:
+
+				return 0;
+			default:
+				break;
+			}
 		}
 	}
-}

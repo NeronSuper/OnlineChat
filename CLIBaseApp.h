@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "Cli.h"
@@ -5,20 +6,22 @@
 #include "CliUserData.h"
 #include "CliMessage.h"
 #include "BaseApp.h"
-
-
-class CLIBaseApp : public CLI
+namespace Messanger
 {
-public:
-	CLIBaseApp();
-	~CLIBaseApp() override;
 
-public:
-	void signIn();
-	void signUp() const;
-	void help() override;
+	class CLIBaseApp : public CLI
+	{
+	public:
+		CLIBaseApp();
+		~CLIBaseApp() override;
 
-private:
-	BaseApp* _baseApp;
-	UserData* _current;
-};
+	public:
+		void signIn();
+		void signUp() const;
+		void help() override;
+
+	private:
+		BaseApp* _baseApp;
+		UserData* _current;
+	};
+}

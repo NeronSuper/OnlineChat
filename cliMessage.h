@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <iostream>
@@ -5,24 +6,26 @@
 #include "Cli.h"
 #include "CLIUserData.h"
 #include "BaseApp.h"
-
-
-class CLIMessage : public CLI 
+namespace Messanger
 {
-public:
-	explicit CLIMessage(UserData* current);
 
-	void mainMenu();
+	class CLIMessage : public CLI
+	{
+	public:
+		explicit CLIMessage(UserData* current);
 
-	void sendToSomebody() const;
-	void mutualChat() const;
-	void sendToALl() const;
-	void generalChat() const;
+		void mainMenu();
 
-	void help() override;
+		void sendToSomebody() const;
+		void mutualChat() const;
+		void sendToALl() const;
+		void generalChat() const;
 
-private:
-	BaseApp* _baseApp;
-	UserData* _current;
+		void help() override;
 
-};
+	private:
+		BaseApp* _baseApp;
+		UserData* _current;
+
+	};
+}

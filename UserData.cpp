@@ -1,16 +1,19 @@
+
 #include "UserData.h"
-
-UserData::UserData()
-	: PrivateUserData()
+namespace Messanger
 {
-}
+	UserData::UserData()
+		: PrivateUserData()
+	{
+	}
 
-UserData::UserData(const std::string& login, const std::string& password)
-	: PrivateUserData(login, password)
-{
-}
+	UserData::UserData(const std::string& login, const std::string& password)
+		: PrivateUserData(login, password)
+	{
+	}
 
-UserData::UserData(const UserData& ud)
-	: PrivateUserData(ud)
-{
+	UserData::UserData(const UserData& ud)
+		: PrivateUserData(ud)
+	{
+	}
 }

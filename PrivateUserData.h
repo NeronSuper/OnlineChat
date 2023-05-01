@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <string>
@@ -5,21 +6,23 @@
 #include <vector>
 
 #include "Message.h"
-
-class PrivateUserData
+namespace Messanger
 {
-public:
-    PrivateUserData();
-    PrivateUserData(const std::string& login, const std::string& password);
-    PrivateUserData(const PrivateUserData& pud);
+    class PrivateUserData
+    {
+    public:
+        PrivateUserData();
+        PrivateUserData(const std::string& login, const std::string& password);
+        PrivateUserData(const PrivateUserData& pud);
 
-    std::string getLogin() const;
-    std::string getPassword() const;
+        std::string getLogin() const;
+        std::string getPassword() const;
 
-    std::map<std::string, std::vector<Message>>& getMessages();
-    
-private:
-    std::pair<std::string, std::string> _pData;
-    std::map<std::string, std::vector<Message>> _messages;
-    
-};
+        std::map<std::string, std::vector<Message>>& getMessages();
+
+    private:
+        std::pair<std::string, std::string> _pData;
+        std::map<std::string, std::vector<Message>> _messages;
+
+    };
+}

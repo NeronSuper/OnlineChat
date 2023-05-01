@@ -1,113 +1,115 @@
+
 #include "CliBaseApp.h"
-
-CLIBaseApp::CLIBaseApp()
-    : _baseApp(BaseApp::instance()), _current(nullptr)
+namespace Messanger
 {
-}
-
-CLIBaseApp::~CLIBaseApp()
-{
-}
-
-void CLIBaseApp::signIn()
-{
-    std::string login, password;
-
-    CLIPrivateUserData cliPrivateUserData;
-    CLIUserData cliUserData;
-
-    while (true)
+    CLIBaseApp::CLIBaseApp()
+        : _baseApp(BaseApp::instance()), _current(nullptr)
     {
-        std::tie(login, password) = cliPrivateUserData.getLoginAndPass();
+    }
 
-        if (!_baseApp->isPasswordCorrect(login, password))
+    CLIBaseApp::~CLIBaseApp()
+    {
+    }
+
+    void CLIBaseApp::signIn()
+    {
+        std::string login, password;
+
+        CLIPrivateUserData cliPrivateUserData;
+        CLIUserData cliUserData;
+
+        while (true)
+        {
+            std::tie(login, password) = cliPrivateUserData.getLoginAndPass();
+
+            if (!_baseApp->isPasswordCorrect(login, password))
+            {
+                std::system("cls");
+
+                std::cout << "Incorrect input\n";
+
+                if (!cliUserData.isContinue())
+                    return;
+
+                continue;
+            }
+
+
+            break;
+        }
+
+        _current = _baseApp->findUser(login);
+
+        _baseApp->setCurrent(_current);
+
+        cliUserData.setCurrent(_current);
+        CLIMessage cliMessage(_current);
+
+        while (true)
         {
             std::system("cls");
 
-            std::cout << "Incorrect input\n";
+            cliUserData.help();
 
-            if (!cliUserData.isContinue())
+            int answer;
+            std::cin >> answer;
+
+            switch (answer)
+            {
+            case 1:
+                cliMessage.mainMenu();
+
+                break;
+            case 2:
+
+                // settings ( just for decency )
+
+                break;
+            case 3:
+
                 return;
+            case 0:
 
-            continue;
+                exit(0);
+            default:
+                break;
+            }
         }
-
-
-        break;
     }
 
-    _current = _baseApp->findUser(login);
 
-    _baseApp->setCurrent(_current);
-
-    cliUserData.setCurrent(_current);
-    CLIMessage cliMessage(_current);
-
-    while (true)
+    void CLIBaseApp::signUp() const
     {
-        std::system("cls");
+        std::string login, password;
+        CLIPrivateUserData cliPrivateUserData;
+        CLIUserData cliUserData;
 
-        cliUserData.help();
-
-        int answer;
-        std::cin >> answer;
-
-        switch (answer)
+        while (true)
         {
-        case 1:
-            cliMessage.mainMenu();
+            std::tie(login, password) = cliPrivateUserData.getLoginAndPass();
 
-            break;
-        case 2:
+            if (_baseApp->isLogin(login))
+            {
+                std::system("cls");
 
-            // settings ( just for decency )
+                std::cout << "User with \"" << login << "\" login is already exist";
 
-            break;
-        case 3:
+                if (!cliUserData.isContinue())
+                    return;
 
-            return;
-        case 0:
+                continue;
+            }
 
-            exit(0);
-        default:
+
             break;
         }
+
+        _baseApp->addUser(UserData(login, password));
     }
-}
 
-
-void CLIBaseApp::signUp() const
-{
-    std::string login, password;
-    CLIPrivateUserData cliPrivateUserData;
-    CLIUserData cliUserData;
-    
-    while (true)
+    void CLIBaseApp::help()
     {
-        std::tie(login, password) = cliPrivateUserData.getLoginAndPass();
-        
-        if (_baseApp->isLogin(login))
-        {
-            std::system("cls");
-
-            std::cout << "User with \"" << login << "\" login is already exist";
-            
-            if (!cliUserData.isContinue())
-                return;
-
-            continue;
-        }
-
-        
-        break;
+        std::cout << "1. Sign in\n";
+        std::cout << "2. Sign up\n";
+        std::cout << "0. Exit\n";
     }
-
-    _baseApp->addUser(UserData(login, password));
-}
-
-void CLIBaseApp::help()
-{
-    std::cout << "1. Sign in\n";
-    std::cout << "2. Sign up\n";
-    std::cout << "0. Exit\n";
-}
