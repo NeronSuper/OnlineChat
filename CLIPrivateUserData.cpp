@@ -1,3 +1,4 @@
+
 #include "CliPrivateUserData.h"
 namespace Messanger
 {

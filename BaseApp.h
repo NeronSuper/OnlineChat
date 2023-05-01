@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <memory>
@@ -45,3 +46,4 @@ namespace Messanger
         std::vector<Message> _generalChat;
     };
 }
+

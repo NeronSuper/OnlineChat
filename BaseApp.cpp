@@ -1,3 +1,4 @@
+
 #include "BaseApp.h"
 namespace Messanger
 {
@@ -116,4 +117,3 @@ namespace Messanger
         : _usersData(), _currentUser(nullptr), _generalChat()
     {
     }
-}

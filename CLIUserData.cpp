@@ -1,3 +1,4 @@
+
 #include <limits>
 #include "CLIUserData.h"
 namespace Messanger
@@ -43,3 +44,4 @@ namespace Messanger
 		std::cout << "0. Exit\n";
 	}
 }
+

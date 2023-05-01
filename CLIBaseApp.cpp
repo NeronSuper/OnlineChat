@@ -1,3 +1,4 @@
+
 #include "CliBaseApp.h"
 namespace Messanger
 {
@@ -112,4 +113,3 @@ namespace Messanger
         std::cout << "2. Sign up\n";
         std::cout << "0. Exit\n";
     }
-}

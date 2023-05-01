@@ -1,3 +1,4 @@
+
 #pragma once
 #include <string>
 namespace Messanger
@@ -16,3 +17,4 @@ namespace Messanger
 
     };
 }
+

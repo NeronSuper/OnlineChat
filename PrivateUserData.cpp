@@ -1,3 +1,4 @@
+
 #include "PrivateUserData.h"
 namespace Messanger
 {
@@ -31,3 +32,4 @@ namespace Messanger
 		return _messages;
 	}
 }
+
