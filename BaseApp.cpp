@@ -1,8 +1,8 @@
-
 #include "BaseApp.h"
+
+
 namespace Messanger
 {
-
     std::unique_ptr<BaseApp> BaseApp::_instance = nullptr;
     BaseApp* BaseApp::instance()
     {
@@ -117,3 +117,4 @@ namespace Messanger
         : _usersData(), _currentUser(nullptr), _generalChat()
     {
     }
+}

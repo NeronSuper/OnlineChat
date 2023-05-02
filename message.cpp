@@ -1,5 +1,6 @@
-
 #include "Message.h"
+
+
 namespace Messanger
 {
 	Message::Message()

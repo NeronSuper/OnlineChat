@@ -1,5 +1,6 @@
-
 #include "CliMessage.h"
+
+
 namespace Messanger
 {
 	CLIMessage::CLIMessage(UserData* current)
@@ -165,3 +166,4 @@ namespace Messanger
 		std::cout << "5. Back\n";
 		std::cout << "0. Exit\n";
 	}
+}

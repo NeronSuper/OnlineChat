@@ -1,6 +1,7 @@
-
 #include <limits>
 #include "CLIUserData.h"
+
+
 namespace Messanger
 {
 	CLIUserData::CLIUserData()

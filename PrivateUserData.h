@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <string>
@@ -6,6 +5,8 @@
 #include <vector>
 
 #include "Message.h"
+
+
 namespace Messanger
 {
     class PrivateUserData

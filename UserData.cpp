@@ -1,5 +1,6 @@
-
 #include "UserData.h"
+
+
 namespace Messanger
 {
 	UserData::UserData()

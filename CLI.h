@@ -1,11 +1,13 @@
 #pragma once
 
-class CLI
+namespace Messanger
 {
-public:
+	class CLI
+	{
+	public:
 
-	virtual void help() = 0;
-	
-	virtual ~CLI() = default;
-};
+		virtual void help() = 0;
 
+		virtual ~CLI() = default;
+	};
+}

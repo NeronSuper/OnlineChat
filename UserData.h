@@ -1,7 +1,8 @@
-
 #pragma once
 
 #include "PrivateUserData.h"
+
+
 namespace Messanger
 {
     class UserData : public PrivateUserData

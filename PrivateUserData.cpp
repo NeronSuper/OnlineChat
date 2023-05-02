@@ -1,5 +1,6 @@
-
 #include "PrivateUserData.h"
+
+
 namespace Messanger
 {
 	PrivateUserData::PrivateUserData()

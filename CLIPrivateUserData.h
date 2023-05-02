@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <string>
@@ -6,6 +5,7 @@
 
 #include "Cli.h"
 #include "BaseApp.h"
+
 
 namespace Messanger
 {

@@ -1,5 +1,6 @@
-
 #include "CliPrivateUserData.h"
+
+
 namespace Messanger
 {
     CLIPrivateUserData::CLIPrivateUserData()
