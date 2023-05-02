@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CliBaseApp.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CliMessage.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CliPrivateUserData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CliUserData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PrivateUserData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UserData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseApp.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{8e69ecce-d1a4-4624-9840-68ed7165bc36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{ab2029b0-89a7-4e99-a6b7-804553ada5ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseApp.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Cli.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CliBaseApp.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CliMessage.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CliPrivateUserData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CliUserData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PrivateUserData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="UserData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
