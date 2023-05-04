@@ -6,6 +6,7 @@
 #include <unordered_map>
 
 #include "UserData.h"
+#include "Socket.h"
 
 
 namespace Messanger

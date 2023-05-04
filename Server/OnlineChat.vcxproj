@@ -146,7 +146,9 @@
     <ClCompile Include="CliUserData.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />
+    <ClCompile Include="OnlineChat.cpp" />
     <ClCompile Include="PrivateUserData.cpp" />
+    <ClCompile Include="Socket.cpp" />
     <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,7 +159,9 @@
     <ClInclude Include="CliPrivateUserData.h" />
     <ClInclude Include="CliUserData.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="OnlineChat.h" />
     <ClInclude Include="PrivateUserData.h" />
+    <ClInclude Include="Socket.h" />
     <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

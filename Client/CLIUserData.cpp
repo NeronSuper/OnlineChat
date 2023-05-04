@@ -17,7 +17,7 @@ namespace Messanger
 
 	bool CLIUserData::isContinue()
 	{
-		std::cout << "\n\nDo you wanna return back?(y/n): ";
+        std::cout << "\n\nDo you wanna try again?(y/n): ";
 
 		char answer;
 		std::cin >> answer;
