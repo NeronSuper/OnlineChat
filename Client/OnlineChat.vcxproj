@@ -146,6 +146,8 @@
     <ClCompile Include="CliUserData.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />
+    <ClCompile Include="MySocket.cpp" />
+    <ClCompile Include="OnlineChat.cpp" />
     <ClCompile Include="PrivateUserData.cpp" />
     <ClCompile Include="UserData.cpp" />
   </ItemGroup>
@@ -157,6 +159,8 @@
     <ClInclude Include="CliPrivateUserData.h" />
     <ClInclude Include="CliUserData.h" />
     <ClInclude Include="Message.h" />
+    <ClInclude Include="MySocket.h" />
+    <ClInclude Include="OnlineChat.h" />
     <ClInclude Include="PrivateUserData.h" />
     <ClInclude Include="UserData.h" />
   </ItemGroup>

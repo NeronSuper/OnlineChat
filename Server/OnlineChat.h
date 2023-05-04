@@ -8,5 +8,5 @@ namespace Messanger
 
 	int startListning(SOCKET ListenSocket);
 
-	void handler(SOCKET ClientSocket);
+	void handler(MySocket ClientSocket);
 }

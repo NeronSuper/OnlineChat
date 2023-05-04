@@ -28,6 +28,12 @@
     <ClCompile Include="BaseApp.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="MySocket.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OnlineChat.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source">
@@ -63,6 +69,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="UserData.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MySocket.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OnlineChat.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

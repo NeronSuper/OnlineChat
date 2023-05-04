@@ -51,14 +51,14 @@ namespace Messanger
 		return 0;
 	}
 
-	void handler(SOCKET ClientSocket)
+	void handler(MySocket ClientSocket)
 	{
 		CLIBaseApp cliBaseApp;
 
 		while (true)
 		{
-			std::system("cls");
-			cliBaseApp.help();
+			/*std::system("cls");
+			cliBaseApp.help();*/
 
 			int answer;
 			std::cin >> answer;
@@ -81,7 +81,7 @@ namespace Messanger
 			}
 		}
 
-		closesocket(ClientSocket);
+		closesocket(ClientSocket.getSocket());
 
 		std::system("pause"); // until problem with thread is not fixed
 	}

@@ -1,48 +1,47 @@
-#include "Socket.h"
+#include "MySocket.h"
 
 MySocket::MySocket()
 {
     initSocket();
 }
 
-MySocket::MySocket(const SOCKET& ClientSocket)
-    : m_clientSocket(ClientSocket)
+MySocket::MySocket(const SOCKET& serverSocket)
+    : m_serverSocket(serverSocket)
 {
 }
 
 MySocket::~MySocket()
 {
-    closesocket(m_clientSocket);
+    closesocket(m_serverSocket);
     WSACleanup();
 }
 
 int MySocket::initSocket()
 {
-    addrinfo hints, * result = NULL;;
     WSADATA wsaData;
-
-
     int iResult;
+
 
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult != 0)
     {
-        std::cout << "WSAStartup failed: " << iResult << "\n";
+        std::cout << "WSAStartup failed: " << iResult << '\n';
 
         return 1;
     }
 
+    struct addrinfo* result = NULL, hints;
 
     ZeroMemory(&hints, sizeof(hints));
-    hints.ai_family = AF_INET;
+    hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
-    hints.ai_flags = AI_PASSIVE;
 
-    iResult = getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
+
+    iResult = getaddrinfo(DEFAULT_IP, DEFAULT_PORT, &hints, &result);
     if (iResult != 0)
     {
-        std::cout << "getaddrinfo failed: " << iResult << "\n";
+        std::cout << "getaddrinfo failed: " << iResult << '\n';
 
         WSACleanup();
 
@@ -50,10 +49,11 @@ int MySocket::initSocket()
     }
 
 
-    m_clientSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
-    if (m_clientSocket == INVALID_SOCKET)
+    m_serverSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
+
+    if (m_serverSocket == INVALID_SOCKET)
     {
-        std::cout << "Error at socket(): " << iResult << "\n";
+        std::cout << "Error at socket(): " << WSAGetLastError() << '\n';
 
         freeaddrinfo(result);
         WSACleanup();
@@ -62,17 +62,17 @@ int MySocket::initSocket()
     }
 
 
-    iResult = bind(m_clientSocket, result->ai_addr, (int)result->ai_addrlen);
+    iResult = connect(m_serverSocket, result->ai_addr, (int)result->ai_addrlen);
     if (iResult == SOCKET_ERROR)
     {
-        std::cout << "getaddrinfo failed: " << iResult << "\n";
-
+        closesocket(m_serverSocket);
         freeaddrinfo(result);
-        closesocket(m_clientSocket);
         WSACleanup();
 
         return 1;
     }
+
+    freeaddrinfo(result);
 
     return 0;
 }
@@ -81,7 +81,7 @@ std::string MySocket::receive()
 {
     char buff[DEFAULT_BUFLEN];
 
-    int iResult = ::recv(m_clientSocket, buff, DEFAULT_BUFLEN, 0);
+    int iResult = ::recv(m_serverSocket, buff, DEFAULT_BUFLEN, 0);
     if (iResult == SOCKET_ERROR)
     {
         std::cout << "receive failed: " << iResult << "\n";
@@ -94,7 +94,7 @@ std::string MySocket::receive()
 
 void MySocket::send(const std::string& message)
 {
-    int iResult = ::send(m_clientSocket, message.c_str(), static_cast<int>(message.size()), 0);
+    int iResult = ::send(m_serverSocket, message.c_str(), static_cast<int>(message.size()), 0);
     if (iResult == SOCKET_ERROR)
     {
         std::cout << "send failed: \n";
@@ -103,10 +103,10 @@ void MySocket::send(const std::string& message)
 
 SOCKET MySocket::getSocket() const
 {
-    return m_clientSocket;
+    return m_serverSocket;
 }
 
-void MySocket::setSocket(const SOCKET& clientSocket)
+void MySocket::setSocket(const SOCKET& serverSocket)
 {
-    m_clientSocket = clientSocket;
+    m_serverSocket = serverSocket;
 }

@@ -148,7 +148,7 @@
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="OnlineChat.cpp" />
     <ClCompile Include="PrivateUserData.cpp" />
-    <ClCompile Include="Socket.cpp" />
+    <ClCompile Include="MySocket.cpp" />
     <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +161,7 @@
     <ClInclude Include="Message.h" />
     <ClInclude Include="OnlineChat.h" />
     <ClInclude Include="PrivateUserData.h" />
-    <ClInclude Include="Socket.h" />
+    <ClInclude Include="MySocket.h" />
     <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
