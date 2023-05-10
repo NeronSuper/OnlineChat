@@ -6,6 +6,9 @@ namespace Messanger
 	{
 		MySocket listenSocket;
 
+		if (listenSocket.getSocket() == INVALID_SOCKET)
+			return 1;
+
 		return startListning(listenSocket.getSocket());
 	}
 
@@ -45,44 +48,37 @@ namespace Messanger
 
 			std::thread th(handler, ClientSocket);
 			th.detach();
-
 		}
 
 		return 0;
 	}
 
-	void handler(MySocket ClientSocket)
+	void handler(MySocket clientSocket)
 	{
-		CLIBaseApp cliBaseApp;
+		CLIBaseApp cliBaseApp(&clientSocket);
 
 		while (true)
-		{
-			/*std::system("cls");
-			cliBaseApp.help();*/
-
-			int answer;
-			std::cin >> answer;
+		{			
+			char answer = clientSocket.receive()[0];
 
 			switch (answer)
 			{
-			case 1:
+			case '1':
 				cliBaseApp.signIn();
 				break;
 
-			case 2:
+			case '2':
 				cliBaseApp.signUp();
 				break;
 
-			case 0:
+			case '0':
+				std::cout << "Connection is closed\n";
+				closesocket(clientSocket.getSocket());
 
 				return;
 			default:
 				break;
 			}
 		}
-
-		closesocket(ClientSocket.getSocket());
-
-		std::system("pause"); // until problem with thread is not fixed
 	}
 }

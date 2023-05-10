@@ -13,6 +13,7 @@ namespace Messanger
 	class CLIMessage : public CLI
 	{
 	public:
+		CLIMessage();
 		explicit CLIMessage(UserData* current);
 
 		void mainMenu();
@@ -27,6 +28,7 @@ namespace Messanger
 	private:
 		BaseApp* _baseApp;
 		UserData* _current;
+		MySocket* _socket;
 
 	};
 }

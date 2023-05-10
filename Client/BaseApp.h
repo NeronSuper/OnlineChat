@@ -24,7 +24,9 @@ namespace Messanger
         static BaseApp* instance();
 
         UserData* getCurrent() const;
-        void setCurrent(UserData* userData);
+        MySocket* getCurrentSocket() const;
+        void setCurrentUser(UserData* userData);
+        void setCurrentSocket(MySocket* socket);
 
         void addUser(const UserData& ud);
         bool isLogin(const std::string& login) const;
@@ -42,6 +44,7 @@ namespace Messanger
 
         std::unordered_map<std::string, UserData> _usersData; // unordered_map of users
         UserData* _currentUser;
+        MySocket* _currentsoket;
 
         std::vector<Message> _generalChat;
     };

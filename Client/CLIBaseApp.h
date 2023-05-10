@@ -14,6 +14,7 @@ namespace Messanger
 	{
 	public:
 		CLIBaseApp();
+		CLIBaseApp(UserData* current);
 		~CLIBaseApp() override;
 
 	public:
@@ -24,5 +25,7 @@ namespace Messanger
 	private:
 		BaseApp* _baseApp;
 		UserData* _current;
+		MySocket* _socket;
+
 	};
 }

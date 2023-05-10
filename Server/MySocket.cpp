@@ -2,7 +2,11 @@
 
 MySocket::MySocket()
 {
-    initSocket();
+    if (initSocket())
+    {
+        std::cout << "can't create a server!\n";
+        m_clientSocket = INVALID_SOCKET;
+    }
 }
 
 MySocket::MySocket(const SOCKET& ClientSocket)
@@ -12,8 +16,6 @@ MySocket::MySocket(const SOCKET& ClientSocket)
 
 MySocket::~MySocket()
 {
-    closesocket(m_clientSocket);
-    WSACleanup();
 }
 
 int MySocket::initSocket()
@@ -99,6 +101,11 @@ void MySocket::send(const std::string& message)
     {
         std::cout << "send failed: \n";
     }
+}
+
+void MySocket::send(char message)
+{
+    MySocket::send(std::string(1, message));
 }
 
 SOCKET MySocket::getSocket() const

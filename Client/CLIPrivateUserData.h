@@ -13,6 +13,7 @@ namespace Messanger
 	{
 	public:
 		CLIPrivateUserData();
+		explicit CLIPrivateUserData(UserData* current);
 
 		std::pair<std::string, std::string> getLoginAndPass();
 
@@ -20,6 +21,8 @@ namespace Messanger
 
 	private:
 		BaseApp* _baseApp;
+		UserData* _current;
+		MySocket* _socket;
 
 	};
 }

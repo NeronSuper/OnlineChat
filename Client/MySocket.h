@@ -30,6 +30,7 @@ public:
 
     std::string receive();
     void send(const std::string& message);
+    void send(char message);
 
     SOCKET getSocket() const;
     void setSocket(const SOCKET& serverSocket);

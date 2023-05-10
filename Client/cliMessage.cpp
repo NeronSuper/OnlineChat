@@ -3,8 +3,12 @@
 
 namespace Messanger
 {
+	CLIMessage::CLIMessage()
+		: _baseApp(BaseApp::instance()), _current(nullptr), _socket(_baseApp->getCurrentSocket())
+	{
+	}
 	CLIMessage::CLIMessage(UserData* current)
-		: _baseApp(BaseApp::instance()), _current(current)
+		: _baseApp(BaseApp::instance()), _current(current), _socket(_baseApp->getCurrentSocket())
 	{
 	}
 

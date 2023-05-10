@@ -8,8 +8,8 @@ namespace Messanger
 	{
 	}
 
-	CLIUserData::CLIUserData(UserData* current)
-		: _baseApp(BaseApp::instance()), _current(current)
+	CLIUserData::CLIUserData(UserData* current, MySocket* socket)
+		: _baseApp(BaseApp::instance()), _current(current), _socket(socket)
 	{
 
 	}

@@ -4,21 +4,21 @@
 namespace Messanger
 {
     CLIPrivateUserData::CLIPrivateUserData()
-        : _baseApp(BaseApp::instance())
+        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(nullptr)
     {
+    }
+
+    CLIPrivateUserData::CLIPrivateUserData(UserData* current, MySocket* socket)
+    {
+
     }
 
     std::pair<std::string, std::string> CLIPrivateUserData::getLoginAndPass()
     {
         std::string login, password;
 
-        std::system("cls");
-
-        std::cout << "Login: ";
-        std::cin >> login;
-
-        std::cout << "Password: ";
-        std::cin >> password;
+        login = _socket->receive();
+        password = _socket->receive();
 
         return { login,password };
     }

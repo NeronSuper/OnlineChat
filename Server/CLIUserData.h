@@ -15,7 +15,7 @@ namespace Messanger
 	{
 	public:
 		CLIUserData();
-		explicit CLIUserData(UserData* current);
+		explicit CLIUserData(UserData* current, MySocket* socket);
 
 		bool isContinue();
 		void setCurrent(UserData* current);
@@ -25,6 +25,7 @@ namespace Messanger
 	private:
 		BaseApp* _baseApp;
 		UserData* _current;
+		MySocket* _socket;
 
 	};
 }

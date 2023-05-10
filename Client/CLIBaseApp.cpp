@@ -4,7 +4,12 @@
 namespace Messanger
 {
     CLIBaseApp::CLIBaseApp()
-        : _baseApp(BaseApp::instance()), _current(nullptr)
+        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(_baseApp->getCurrentSocket())
+    {
+    }
+
+    CLIBaseApp::CLIBaseApp(UserData* current)
+        : _baseApp(BaseApp::instance()), _current(current), _socket(_baseApp->getCurrentSocket())
     {
     }
 
@@ -41,7 +46,7 @@ namespace Messanger
 
         _current = _baseApp->findUser(login);
 
-        _baseApp->setCurrent(_current);
+        _baseApp->setCurrentUser(_current);
 
         cliUserData.setCurrent(_current);
         CLIMessage cliMessage(_current);

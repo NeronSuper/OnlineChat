@@ -18,9 +18,19 @@ namespace Messanger
         return _currentUser;
     }
 
-    void BaseApp::setCurrent(UserData* userData)
+    MySocket* BaseApp::getCurrentSocket() const
+    {
+        return _currentsoket;
+    }
+
+    void BaseApp::setCurrentUser(UserData* userData)
     {
         _currentUser = userData;
+    }
+
+    void BaseApp::setCurrentSocket(MySocket* socket)
+    {
+        _currentsoket = socket;
     }
 
     void BaseApp::addUser(const UserData& ud)

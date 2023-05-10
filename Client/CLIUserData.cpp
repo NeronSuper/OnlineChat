@@ -5,12 +5,12 @@
 namespace Messanger
 {
 	CLIUserData::CLIUserData()
-		: _baseApp(BaseApp::instance()), _current(nullptr)
+		: _baseApp(BaseApp::instance()), _current(nullptr), _socket(_baseApp->getCurrentSocket())
 	{
 	}
 
 	CLIUserData::CLIUserData(UserData* current)
-		: _baseApp(BaseApp::instance()), _current(current)
+		: _baseApp(BaseApp::instance()), _current(current), _socket(_baseApp->getCurrentSocket())
 	{
 
 	}

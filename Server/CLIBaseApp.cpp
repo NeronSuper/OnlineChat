@@ -4,7 +4,12 @@
 namespace Messanger
 {
     CLIBaseApp::CLIBaseApp()
-        : _baseApp(BaseApp::instance()), _current(nullptr)
+        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(nullptr)
+    {
+    }
+
+    CLIBaseApp::CLIBaseApp(MySocket* socket)
+        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(socket)
     {
     }
 
@@ -44,7 +49,7 @@ namespace Messanger
         _baseApp->setCurrent(_current);
 
         cliUserData.setCurrent(_current);
-        CLIMessage cliMessage(_current);
+        CLIMessage cliMessage(_current, _socket);
 
         while (true)
         {
