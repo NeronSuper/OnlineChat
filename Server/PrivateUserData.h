@@ -19,11 +19,11 @@ namespace Messanger
         std::string getLogin() const;
         std::string getPassword() const;
 
-        std::map<std::string, std::vector<Message>>& getMessages();
+        std::map<std::string, std::vector<Message>>& getChats();
 
     private:
         std::pair<std::string, std::string> _pData;
-        std::map<std::string, std::vector<Message>> _messages;
+        std::map<std::string, std::vector<Message>> _chats;
 
     };
 }

@@ -36,6 +36,8 @@ namespace Messanger
         void sendMessage(const Message& message, const std::string& receiver); // send to concrete chat
         void sendMessage(const Message& message);                              // send to general chat
 
+        void updateData();
+
     private:
         static std::unique_ptr<BaseApp> _instance;
 

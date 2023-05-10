@@ -4,12 +4,12 @@
 namespace Messanger
 {
     CLIPrivateUserData::CLIPrivateUserData()
-        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(nullptr)
+        : _baseApp(BaseApp::instance()), _user(nullptr), _socket(nullptr)
     {
     }
 
     CLIPrivateUserData::CLIPrivateUserData(UserData* current, MySocket* socket)
-        : _baseApp(BaseApp::instance()), _current(current), _socket(socket)
+        : _baseApp(BaseApp::instance()), _user(current), _socket(socket)
     {
 
     }

@@ -14,9 +14,9 @@ namespace Messanger
 
 	int run(MySocket& serverSocket)
 	{
-		CLIBaseApp cliBaseApp;
-
 		BaseApp::instance()->setCurrentSocket(&serverSocket);
+		
+		CLIBaseApp cliBaseApp;
 		
 		while (true)
 		{

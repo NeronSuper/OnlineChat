@@ -47,7 +47,7 @@ namespace Messanger
     {
         std::system("cls");
 
-        auto messages = _currentUser->getMessages()[chatName];
+        auto messages = _currentUser->getChats()[chatName];
 
         if (messages.empty())
         {
@@ -57,7 +57,7 @@ namespace Messanger
         {
             for (int i = 0; i < messages.size(); ++i)
             {
-                std::cout << messages[i].getName() << ": " << messages[i].getMessage() << "\n";
+                std::cout << messages[i].getOwner() << ": " << messages[i].getMessage() << "\n";
             }
         }
 
@@ -78,7 +78,7 @@ namespace Messanger
         {
             for (int i = 0; i < _generalChat.size(); ++i)
             {
-                std::cout << _generalChat[i].getName() << ": " << _generalChat[i].getMessage() << "\n";
+                std::cout << _generalChat[i].getOwner() << ": " << _generalChat[i].getMessage() << "\n";
             }
         }
 
@@ -88,8 +88,7 @@ namespace Messanger
 
     void BaseApp::sendMessage(const Message& message, const std::string& receiver)
     {
-        std::string sender = _currentUser->getLogin();
-
+        _currentUser->getChats()[receiver].push_back(message);
     }
 
     void BaseApp::sendMessage(const Message& message)
@@ -97,8 +96,35 @@ namespace Messanger
         _generalChat.push_back(message);
     }
 
+    void BaseApp::updateData()
+    {
+        auto& chats = _currentUser->getChats();
+
+        chats.clear();
+
+        int countOfChats = std::stoi(_currentSoket->receive());
+        for (int i = 0; i < countOfChats; ++i)
+        {
+            std::string name;
+            std::vector<Message> messages;
+
+            name = _currentSoket->receive();
+
+            int countOfMessages = std::stoi(_currentSoket->receive());
+            for (int j = 0; j < countOfMessages; ++j)
+            {
+                std::string messageOwer = _currentSoket->receive();
+                std::string message = _currentSoket->receive();
+
+                messages.push_back({ messageOwer, message });
+            }
+
+            chats[name] = messages;
+        }
+    }
+
     BaseApp::BaseApp()
-        : _currentUser(nullptr), _generalChat()
+        : _currentUser(nullptr), _currentSoket(nullptr), _generalChat()
     {
     }
 }

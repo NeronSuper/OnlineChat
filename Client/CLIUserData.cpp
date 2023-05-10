@@ -5,12 +5,12 @@
 namespace Messanger
 {
 	CLIUserData::CLIUserData()
-		: _baseApp(BaseApp::instance()), _current(nullptr), _socket(_baseApp->getCurrentSocket())
+		: _baseApp(BaseApp::instance()), _user(nullptr), _socket(_baseApp->getCurrentSocket())
 	{
 	}
 
 	CLIUserData::CLIUserData(UserData* current)
-		: _baseApp(BaseApp::instance()), _current(current), _socket(_baseApp->getCurrentSocket())
+		: _baseApp(BaseApp::instance()), _user(current), _socket(_baseApp->getCurrentSocket())
 	{
 
 	}
@@ -37,12 +37,12 @@ namespace Messanger
 
 	void CLIUserData::setCurrent(UserData* current)
 	{
-		_current = current;
+		_user = current;
 	}
 
 	void CLIUserData::help()
 	{
-		std::cout << "Your login: " << _current->getLogin() << "\n";
+		std::cout << "Your login: " << _user->getLogin() << "\n";
 		std::cout << "1. Go message\n";
 		std::cout << "2. Settings\n";
 		std::cout << "3. Back\n";

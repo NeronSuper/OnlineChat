@@ -21,7 +21,7 @@ namespace Messanger
 
 	private:
 		BaseApp* _baseApp;
-		UserData* _current;
+		UserData* _user;
 		MySocket* _socket;
 
 	};

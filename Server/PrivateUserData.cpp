@@ -4,7 +4,7 @@
 namespace Messanger
 {
 	PrivateUserData::PrivateUserData()
-		: _pData(), _messages()
+		: _pData(), _chats()
 	{
 	}
 
@@ -14,7 +14,7 @@ namespace Messanger
 	}
 
 	PrivateUserData::PrivateUserData(const PrivateUserData& pud)
-		: _pData(pud._pData), _messages(pud._messages)
+		: _pData(pud._pData), _chats(pud._chats)
 	{
 	}
 
@@ -28,9 +28,9 @@ namespace Messanger
 		return _pData.second;
 	}
 
-	std::map<std::string, std::vector<Message>>& PrivateUserData::getMessages()
+	std::map<std::string, std::vector<Message>>& PrivateUserData::getChats()
 	{
-		return _messages;
+		return _chats;
 	}
 }
 

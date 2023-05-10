@@ -14,7 +14,7 @@ namespace Messanger
 
 	}
 
-	const std::string& Message::getName() const
+	const std::string& Message::getOwner() const
 	{
 		return _message.first;
 	}

@@ -31,10 +31,12 @@ namespace Messanger
 
         UserData* findUser(const std::string& login);
 
-        void printChat(const std::string& chatName);                           // print concrete chat
-        void printChat();                                                      // print general chat
-        void sendMessage(const Message& message, const std::string& receiver); // send to concrete chat
-        void sendMessage(const Message& message);                              // send to general chat
+        void printChat(const std::string& chatName);                                             // print concrete chat
+        void printChat();                                                                       // print general chat
+        void sendMessage(const Message& message, const std::string& receiver, UserData* user); // send to concrete chat
+        void sendMessage(const Message& message);                                               // send to general chat
+
+        void updateUserData(UserData* user, MySocket* socket);
 
     private:
         static std::unique_ptr<BaseApp> _instance;

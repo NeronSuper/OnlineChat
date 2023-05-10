@@ -3,6 +3,11 @@
 
 namespace Messanger
 {
+    BaseApp::BaseApp()
+        : _usersData(), _generalChat()
+    {
+    }
+
     std::unique_ptr<BaseApp> BaseApp::_instance = nullptr;
     BaseApp* BaseApp::instance()
     {
@@ -104,7 +109,7 @@ namespace Messanger
         {
             for (int i = 0; i < _generalChat.size(); ++i)
             {
-                std::cout << _generalChat[i].getName() << ": " << _generalChat[i].getMessage() << "\n";
+                std::cout << _generalChat[i].getOwner() << ": " << _generalChat[i].getMessage() << "\n";
             }
         }
 
@@ -112,12 +117,14 @@ namespace Messanger
         std::system("pause");
     }
 
-    void BaseApp::sendMessage(const Message& message, const std::string& receiver)
+    void BaseApp::sendMessage(const Message& message, const std::string& receiver, UserData* user)
     {
-        /*std::string sender = _currentUser->getLogin();
+        std::cout << "The message \'" << message.getMessage() << "\' sent from \'" << user->getLogin() << "\' to \'" << receiver << "\'\n";
 
-        findUser(sender)->getMessages()[receiver].push_back(message);
-        findUser(receiver)->getMessages()[sender].push_back(message);*/
+        std::string sender = user->getLogin();
+        
+        findUser(sender)->getChats()[receiver].push_back(message);
+        findUser(receiver)->getChats()[sender].push_back(message);
     }
 
     void BaseApp::sendMessage(const Message& message)
@@ -125,8 +132,29 @@ namespace Messanger
         _generalChat.push_back(message);
     }
 
-    BaseApp::BaseApp()
-        : _usersData(), _generalChat()
+    void BaseApp::updateUserData(UserData* user, MySocket* socket)
     {
+        auto& chats = user->getChats();
+        size_t countOfChats = chats.size();
+
+        socket->send(std::to_string(countOfChats));
+
+        for (auto iter_mes = chats.begin(); iter_mes != chats.end(); ++iter_mes)
+        {
+            std::string name = iter_mes->first;
+            auto& messages = iter_mes->second;
+
+            size_t countOfMessages = messages.size();
+
+            socket->send(name);
+            
+            socket->send(std::to_string(countOfMessages));
+
+            for (size_t i = 0; i < countOfMessages; i++)
+            {
+                socket->send(messages[i].getOwner());
+                socket->send(messages[i].getMessage());
+            }
+        }
     }
 }

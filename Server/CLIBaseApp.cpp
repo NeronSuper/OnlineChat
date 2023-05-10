@@ -4,12 +4,12 @@
 namespace Messanger
 {
     CLIBaseApp::CLIBaseApp()
-        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(nullptr)
+        : _baseApp(BaseApp::instance()), _user(nullptr), _socket(nullptr)
     {
     }
 
     CLIBaseApp::CLIBaseApp(MySocket* socket)
-        : _baseApp(BaseApp::instance()), _current(nullptr), _socket(socket)
+        : _baseApp(BaseApp::instance()), _user(nullptr), _socket(socket)
     {
     }
 
@@ -40,10 +40,10 @@ namespace Messanger
             break;
         }
 
-        _current = _baseApp->findUser(login); 
+        _user = _baseApp->findUser(login); 
 
-        cliUserData.setCurrent(_current);
-        CLIMessage cliMessage(_current, _socket);
+        cliUserData.setCurrent(_user);
+        CLIMessage cliMessage(_user, _socket);
 
         while (true)
         {
