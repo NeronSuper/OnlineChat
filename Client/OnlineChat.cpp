@@ -18,32 +18,41 @@ namespace Messanger
 		
 		CLIBaseApp cliBaseApp;
 		
-		while (true)
+		try
 		{
-			std::system("cls");
-			cliBaseApp.help();
-
-			char answer;
-			std::cin >> answer;
-
-			serverSocket.send(answer);
-
-			switch (answer)
+			while (true)
 			{
-			case '1':
-				cliBaseApp.signIn();
-				break;
+				std::system("cls");
+				cliBaseApp.help();
 
-			case '2':
-				cliBaseApp.signUp();
-				break;
+				char answer;
+				std::cin >> answer;
 
-			case '0':
+				serverSocket.send(answer);
 
-				return 0;
-			default:
-				break;
+				switch (answer)
+				{
+				case '1':
+					cliBaseApp.signIn();
+					break;
+
+				case '2':
+					cliBaseApp.signUp();
+					break;
+
+				case '0':
+
+					return 0;
+				default:
+					break;
+				}
 			}
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Server is closed!\n";
+
+			return 1;
 		}
 
 		return 0;
