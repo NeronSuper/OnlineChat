@@ -87,6 +87,8 @@ std::string MySocket::receive()
     if (iResult == SOCKET_ERROR)
     {
         std::cout << "receive failed: " << iResult << "\n";
+
+        throw std::exception();
     }
 
     buff[iResult] = '\0';
@@ -100,6 +102,8 @@ void MySocket::send(const std::string& message)
     if (iResult == SOCKET_ERROR)
     {
         std::cout << "send failed: \n";
+
+        throw std::exception();
     }
 }
 

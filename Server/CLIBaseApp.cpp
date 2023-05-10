@@ -65,7 +65,7 @@ namespace Messanger
                 return;
             case '0':
 
-                exit(0);
+                throw std::exception();
             default:
                 break;
             }

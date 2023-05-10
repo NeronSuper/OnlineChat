@@ -57,28 +57,38 @@ namespace Messanger
 	{
 		CLIBaseApp cliBaseApp(&clientSocket);
 
-		while (true)
-		{			
-			char answer = clientSocket.receive()[0];
-
-			switch (answer)
+		try
+		{
+			
+			while (true)
 			{
-			case '1':
-				cliBaseApp.signIn();
-				break;
+				char answer = clientSocket.receive()[0];
 
-			case '2':
-				cliBaseApp.signUp();
-				break;
+				switch (answer)
+				{
+				case '1':
+					cliBaseApp.signIn();
+					break;
 
-			case '0':
-				std::cout << "Connection is closed\n";
-				closesocket(clientSocket.getSocket());
+				case '2':
+					cliBaseApp.signUp();
+					break;
 
-				return;
-			default:
-				break;
+				case '0':
+					throw std::exception();
+
+					return;
+				default:
+					break;
+				}
 			}
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Connection is closed\n";
+			closesocket(clientSocket.getSocket());
+
+			return;
 		}
 	}
 }
