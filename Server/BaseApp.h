@@ -30,11 +30,9 @@ namespace Messanger
         bool isPasswordCorrect(const std::string& login, const std::string& password, MySocket* socket) const;
 
         UserData* findUser(const std::string& login);
-
-        void printChat(const std::string& chatName);                                             // print concrete chat
-        void printChat();                                                                       // print general chat
+        
         void sendMessage(const Message& message, const std::string& receiver, UserData* user); // send to concrete chat
-        void sendMessage(const Message& message);                                               // send to general chat
+        void sendMessage(const Message& message);                                              // send to general chat
 
         void updateUserData(UserData* user, MySocket* socket);
 

@@ -74,49 +74,6 @@ namespace Messanger
         return nullptr;
     }
 
-    void BaseApp::printChat(const std::string& chatName)
-    {
-        /*std::system("cls");
-
-        auto messages = _currentUser->getMessages()[chatName];
-
-        if (messages.empty())
-        {
-            std::cout << "This chat is empty, send him a message!\n";
-        }
-        else
-        {
-            for (int i = 0; i < messages.size(); ++i)
-            {
-                std::cout << messages[i].getName() << ": " << messages[i].getMessage() << "\n";
-            }
-        }
-
-
-        std::system("pause");*/
-    }
-
-    void BaseApp::printChat()
-    {
-        std::system("cls");
-
-
-        if (_generalChat.size() == 0)
-        {
-            std::cout << "This chat is empty, send him a message!\n";
-        }
-        else
-        {
-            for (int i = 0; i < _generalChat.size(); ++i)
-            {
-                std::cout << _generalChat[i].getOwner() << ": " << _generalChat[i].getMessage() << "\n";
-            }
-        }
-
-
-        std::system("pause");
-    }
-
     void BaseApp::sendMessage(const Message& message, const std::string& receiver, UserData* user)
     {
         std::cout << "The message \'" << message.getMessage() << "\' sent from \'" << user->getLogin() << "\' to \'" << receiver << "\'\n";
@@ -129,11 +86,13 @@ namespace Messanger
 
     void BaseApp::sendMessage(const Message& message)
     {
+        std::cout << "The message \'" << message.getMessage() << " is sent by \'" << message.getOwner() << "\' to general chat\n";
         _generalChat.push_back(message);
     }
 
     void BaseApp::updateUserData(UserData* user, MySocket* socket)
     {
+        // Updating private chats
         auto& chats = user->getChats();
         size_t countOfChats = chats.size();
 
@@ -155,6 +114,17 @@ namespace Messanger
                 socket->send(messages[i].getOwner());
                 socket->send(messages[i].getMessage());
             }
+        }
+
+        // Updating general chat
+
+        size_t generalChat_size = _generalChat.size();
+        socket->send(std::to_string(generalChat_size));
+
+        for (size_t i = 0; i < generalChat_size; ++i)
+        {
+            socket->send(_generalChat[i].getOwner());
+            socket->send(_generalChat[i].getMessage());
         }
     }
 }

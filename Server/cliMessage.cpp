@@ -115,20 +115,14 @@ namespace Messanger
 
 	void CLIMessage::sendToALl() const
 	{
-		std::system("cls");
-
-		std::cout << "Your messange in general chat: ";
-		std::string message;
-
-		std::cin.ignore();
-		std::getline(std::cin, message);
+		std::string message = _socket->receive();
 
 		_baseApp->sendMessage(Message(_user->getLogin(), message));
 	}
 
 	void CLIMessage::generalChat() const
 	{
-		_baseApp->printChat();
+		_baseApp->updateUserData(_user, _socket);
 	}
 
 	void CLIMessage::help()

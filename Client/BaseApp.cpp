@@ -98,6 +98,7 @@ namespace Messanger
 
     void BaseApp::updateData()
     {
+        // Updating private chats
         auto& chats = _currentUser->getChats();
 
         chats.clear();
@@ -120,6 +121,20 @@ namespace Messanger
             }
 
             chats[name] = messages;
+        }
+
+        // Updating general chat
+
+        int generalChat_size = std::stoi(_currentSoket->receive());
+        
+        _generalChat.clear();
+
+        for (size_t i = 0; i < generalChat_size; ++i)
+        {
+            std::string messageOwer = _currentSoket->receive();
+            std::string message = _currentSoket->receive();
+
+            _generalChat.push_back({ messageOwer, message });
         }
     }
 
