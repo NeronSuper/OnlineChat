@@ -4,7 +4,7 @@
 namespace Messanger
 {
 	CLIUserData::CLIUserData()
-		: _baseApp(BaseApp::instance()), _current(nullptr)
+		: _baseApp(BaseApp::instance()), _current(nullptr), _socket(nullptr)
 	{
 	}
 
@@ -16,18 +16,7 @@ namespace Messanger
 
 	bool CLIUserData::isContinue()
 	{
-		std::cout << "\n\nDo you wanna try again?(y/n): ";
-
-		char answer;
-		std::cin >> answer;
-
-		std::cin.clear();
-		std::cin.ignore(32767, '\n');
-
-		if (answer == 'n' || answer == 'N')
-			return false;
-
-		return true;
+		return _socket->receive()[0];
 	}
 
 	void CLIUserData::setCurrent(UserData* current)

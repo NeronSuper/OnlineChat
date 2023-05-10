@@ -13,37 +13,49 @@ namespace Messanger
         return _instance.get();
     }
 
-    UserData* BaseApp::getCurrent() const
-    {
-        return _currentUser;
-    }
-
-    void BaseApp::setCurrent(UserData* userData)
-    {
-        _currentUser = userData;
-    }
-
     void BaseApp::addUser(const UserData& ud)
     {
+        std::cout << "Added user - login: \'" << ud.getLogin() << "\' password: \'" << ud.getPassword() << "\'\n";
         _usersData[ud.getLogin()] = ud;
+    }
+
+    bool BaseApp::isLogin(const std::string& login, MySocket* socket) const
+    {
+        if (isLogin(login))
+        {
+            socket->send('1');
+            return true;
+        }
+
+        socket->send('0');
+        return false;
     }
 
     bool BaseApp::isLogin(const std::string& login) const
     {
         if (_usersData.find(login) != _usersData.end())
+        {
             return true;
+        }
 
         return false;
     }
 
-    bool BaseApp::isPasswordCorrect(const std::string& login, const std::string& password) const
+    bool BaseApp::isPasswordCorrect(const std::string& login, const std::string& password, MySocket* socket) const
     {
         if (!isLogin(login))
+        {
+            socket->send('0');
             return false;
+        }
 
         if (_usersData.at(login).getPassword() == password)
+        {
+            socket->send('1');
             return true;
+        }
 
+        socket->send('0');
         return false;
     }
 
@@ -59,7 +71,7 @@ namespace Messanger
 
     void BaseApp::printChat(const std::string& chatName)
     {
-        std::system("cls");
+        /*std::system("cls");
 
         auto messages = _currentUser->getMessages()[chatName];
 
@@ -76,7 +88,7 @@ namespace Messanger
         }
 
 
-        std::system("pause");
+        std::system("pause");*/
     }
 
     void BaseApp::printChat()
@@ -102,10 +114,10 @@ namespace Messanger
 
     void BaseApp::sendMessage(const Message& message, const std::string& receiver)
     {
-        std::string sender = _currentUser->getLogin();
+        /*std::string sender = _currentUser->getLogin();
 
         findUser(sender)->getMessages()[receiver].push_back(message);
-        findUser(receiver)->getMessages()[sender].push_back(message);
+        findUser(receiver)->getMessages()[sender].push_back(message);*/
     }
 
     void BaseApp::sendMessage(const Message& message)
@@ -114,7 +126,7 @@ namespace Messanger
     }
 
     BaseApp::BaseApp()
-        : _usersData(), _currentUser(nullptr), _generalChat()
+        : _usersData(), _generalChat()
     {
     }
 }

@@ -20,7 +20,7 @@ namespace Messanger
 
     MySocket* BaseApp::getCurrentSocket() const
     {
-        return _currentsoket;
+        return _currentSoket;
     }
 
     void BaseApp::setCurrentUser(UserData* userData)
@@ -30,41 +30,17 @@ namespace Messanger
 
     void BaseApp::setCurrentSocket(MySocket* socket)
     {
-        _currentsoket = socket;
-    }
-
-    void BaseApp::addUser(const UserData& ud)
-    {
-        _usersData[ud.getLogin()] = ud;
+        _currentSoket = socket;
     }
 
     bool BaseApp::isLogin(const std::string& login) const
     {
-        if (_usersData.find(login) != _usersData.end())
-            return true;
-
-        return false;
+        return _currentSoket->receive()[0] - '0';
     }
 
     bool BaseApp::isPasswordCorrect(const std::string& login, const std::string& password) const
     {
-        if (!isLogin(login))
-            return false;
-
-        if (_usersData.at(login).getPassword() == password)
-            return true;
-
-        return false;
-    }
-
-    UserData* BaseApp::findUser(const std::string& login)
-    {
-        auto ud = _usersData.find(login);
-
-        if (ud != _usersData.end())
-            return &ud->second;
-
-        return nullptr;
+        return _currentSoket->receive()[0] - '0';
     }
 
     void BaseApp::printChat(const std::string& chatName)
@@ -114,8 +90,6 @@ namespace Messanger
     {
         std::string sender = _currentUser->getLogin();
 
-        findUser(sender)->getMessages()[receiver].push_back(message);
-        findUser(receiver)->getMessages()[sender].push_back(message);
     }
 
     void BaseApp::sendMessage(const Message& message)
@@ -124,7 +98,7 @@ namespace Messanger
     }
 
     BaseApp::BaseApp()
-        : _usersData(), _currentUser(nullptr), _generalChat()
+        : _currentUser(nullptr), _generalChat()
     {
     }
 }

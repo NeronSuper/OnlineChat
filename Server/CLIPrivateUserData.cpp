@@ -9,6 +9,7 @@ namespace Messanger
     }
 
     CLIPrivateUserData::CLIPrivateUserData(UserData* current, MySocket* socket)
+        : _baseApp(BaseApp::instance()), _current(current), _socket(socket)
     {
 
     }

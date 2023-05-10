@@ -26,8 +26,12 @@ namespace Messanger
 		std::cin.ignore(32767, '\n');
 
 		if (answer == 'n' || answer == 'N')
+		{
+			_socket->send('0');
 			return false;
+		}
 
+		_socket->send('1');
 		return true;
 	}
 

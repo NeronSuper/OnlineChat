@@ -40,11 +40,10 @@ namespace Messanger
                 continue;
             }
 
-
             break;
         }
 
-        _current = _baseApp->findUser(login);
+        _current = new UserData(login, password);
 
         _baseApp->setCurrentUser(_current);
 
@@ -57,24 +56,26 @@ namespace Messanger
 
             cliUserData.help();
 
-            int answer;
+            char answer;
             std::cin >> answer;
+
+            _socket->send(answer);
 
             switch (answer)
             {
-            case 1:
+            case '1':
                 cliMessage.mainMenu();
 
                 break;
-            case 2:
+            case '2':
 
                 // settings ( just for decency )
 
                 break;
-            case 3:
+            case '3':
 
                 return;
-            case 0:
+            case '0':
 
                 exit(0);
             default:
@@ -106,11 +107,8 @@ namespace Messanger
                 continue;
             }
 
-
             break;
         }
-
-        _baseApp->addUser(UserData(login, password));
     }
 
     void CLIBaseApp::help()

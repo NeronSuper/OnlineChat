@@ -64,7 +64,7 @@ namespace Messanger
 			std::cout << "Send a messege to: ";
 			std::cin >> receiver;
 
-			if (!_baseApp->isLogin(receiver))
+			if (!_baseApp->isLogin(receiver, _socket))
 			{
 				std::system("cls");
 				std::cout << receiver << " have never been registered!\n";
@@ -110,7 +110,7 @@ namespace Messanger
 			std::cout << "Enter chat's name: ";
 			std::cin >> chatName;
 
-			if (!_baseApp->isLogin(chatName))
+			if (!_baseApp->isLogin(chatName, _socket))
 			{
 				std::system("cls");
 				std::cout << chatName << " have never been registered!\n";

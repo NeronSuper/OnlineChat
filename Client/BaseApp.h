@@ -28,11 +28,8 @@ namespace Messanger
         void setCurrentUser(UserData* userData);
         void setCurrentSocket(MySocket* socket);
 
-        void addUser(const UserData& ud);
         bool isLogin(const std::string& login) const;
         bool isPasswordCorrect(const std::string& login, const std::string& password) const;
-
-        UserData* findUser(const std::string& login);
 
         void printChat(const std::string& chatName);                           // print concrete chat
         void printChat();                                                      // print general chat
@@ -42,9 +39,8 @@ namespace Messanger
     private:
         static std::unique_ptr<BaseApp> _instance;
 
-        std::unordered_map<std::string, UserData> _usersData; // unordered_map of users
         UserData* _currentUser;
-        MySocket* _currentsoket;
+        MySocket* _currentSoket;
 
         std::vector<Message> _generalChat;
     };
