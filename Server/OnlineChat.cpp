@@ -56,7 +56,7 @@ namespace Messanger
 	void handler(MySocket clientSocket)
 	{
 		CLIBaseApp cliBaseApp(&clientSocket);
-
+		
 		try
 		{
 			

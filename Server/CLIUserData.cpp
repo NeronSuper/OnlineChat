@@ -16,7 +16,7 @@ namespace Messanger
 
 	bool CLIUserData::isContinue()
 	{
-		return _socket->receive()[0];
+		return _socket->receive()[0] - '0';
 	}
 
 	void CLIUserData::setCurrent(UserData* current)

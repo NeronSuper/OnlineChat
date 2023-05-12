@@ -68,8 +68,8 @@ namespace Messanger
 			std::system("cls");
 
 			std::cout << "Send a messege to: ";
-			std::cin.ignore();
-			std::getline(std::cin, receiver);
+			
+			std::cin >> receiver;
 
 			_socket->send(receiver);
 
@@ -118,8 +118,8 @@ namespace Messanger
 			std::system("cls");
 
 			std::cout << "Enter chat's name: ";
-			std::cin.ignore();
-			std::getline(std::cin, chatName);
+			
+			std::cin >> chatName;
 
 			_socket->send(chatName);
 
