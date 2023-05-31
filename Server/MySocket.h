@@ -38,6 +38,9 @@ public:
     void setSocket(const SOCKET& clientSocket);
 
 private:
+    std::string receiveMess();
+    void sendMess(const std::string& message);
+
     SOCKET m_clientSocket;
 
 };

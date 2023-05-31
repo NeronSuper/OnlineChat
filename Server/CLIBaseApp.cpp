@@ -47,7 +47,7 @@ namespace Messanger
 
         while (true)
         {
-            int answer = _socket->receive()[0];
+            char answer = _socket->receive()[0];
 
             switch (answer)
             {

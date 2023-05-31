@@ -36,6 +36,9 @@ public:
     void setSocket(const SOCKET& serverSocket);
 
 private:
+    std::string receiveMess();
+    void sendMess(const std::string& message);
+
     SOCKET m_serverSocket;
 
 };

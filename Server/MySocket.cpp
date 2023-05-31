@@ -81,28 +81,19 @@ int MySocket::initSocket()
 
 std::string MySocket::receive()
 {
-    char buff[DEFAULT_BUFLEN];
+    std::string mess = receiveMess();
 
-    int iResult = ::recv(m_clientSocket, buff, DEFAULT_BUFLEN, 0);
-    if (iResult == SOCKET_ERROR)
-    {
-        std::cout << "receive failed: " << iResult << "\n";
+    sendMess(mess);
 
-        throw std::exception();
-    }
-
-    buff[iResult] = '\0';
-
-    return buff;
+    return mess;
 }
 
 void MySocket::send(const std::string& message)
 {
-    int iResult = ::send(m_clientSocket, message.c_str(), static_cast<int>(message.size()), 0);
-    if (iResult == SOCKET_ERROR)
-    {
-        std::cout << "send failed: \n";
+    sendMess(message);
 
+    if (receiveMess() != message)
+    {
         throw std::exception();
     }
 }
@@ -120,4 +111,32 @@ SOCKET MySocket::getSocket() const
 void MySocket::setSocket(const SOCKET& clientSocket)
 {
     m_clientSocket = clientSocket;
+}
+
+std::string MySocket::receiveMess()
+{
+    char buff[DEFAULT_BUFLEN];
+
+    int iResult = ::recv(m_clientSocket, buff, DEFAULT_BUFLEN, 0);
+    if (iResult == SOCKET_ERROR)
+    {
+        std::cout << "receive failed: " << iResult << "\n";
+
+        throw std::exception();
+    }
+
+    buff[iResult] = '\0';
+
+    return buff;
+}
+
+void MySocket::sendMess(const std::string& message)
+{
+    int iResult = ::send(m_clientSocket, message.c_str(), static_cast<int>(message.size()), 0);
+    if (iResult == SOCKET_ERROR)
+    {
+        std::cout << "send failed: \n";
+
+        throw std::exception();
+    }
 }
